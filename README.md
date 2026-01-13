@@ -1,2 +1,0 @@
-# DCG
-Disease Control Guidelines
