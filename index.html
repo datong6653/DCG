@@ -41,7 +41,7 @@
         <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-3">
                 <div class="bg-blue-700 p-2 rounded-lg">
-                    <i class="fas fa-hospital-user text-white text-xl"></i>
+                    <i class="fas fa-hospital-user text-white text-xl" aria-hidden="true"></i>
                 </div>
                 <div>
                     <h1 class="font-bold text-lg text-slate-900 leading-tight">醫護傳染病防治實務手冊</h1>
@@ -49,7 +49,7 @@
                 </div>
             </div>
             <button onclick="window.print()" class="no-print bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-lg text-xs font-bold transition-all">
-                <i class="fas fa-print mr-1"></i> 列印全手冊
+                <i class="fas fa-print mr-1" aria-hidden="true"></i> 列印全手冊
             </button>
         </div>
     </header>
@@ -57,17 +57,17 @@
     <main class="max-w-5xl mx-auto px-4 py-6">
         
         <!-- Tab Navigation -->
-        <div class="no-print flex p-1 bg-slate-200 rounded-2xl mb-8 max-w-md mx-auto">
-            <button id="btnMeasles" onclick="switchTab('measles')" class="flex-1 py-3 px-4 rounded-xl text-sm font-bold transition-all flex items-center justify-center tab-active">
-                <i class="fas fa-virus mr-2"></i> 麻疹防治
+        <div class="no-print flex p-1 bg-slate-200 rounded-2xl mb-8 max-w-md mx-auto" role="tablist" aria-label="病種選單">
+            <button id="btnMeasles" onclick="switchTab('measles')" role="tab" aria-controls="sectionMeasles" aria-selected="true" class="flex-1 py-3 px-4 rounded-xl text-sm font-bold transition-all flex items-center justify-center tab-active">
+                <i class="fas fa-virus mr-2" aria-hidden="true"></i> 麻疹防治
             </button>
-            <button id="btnDengue" onclick="switchTab('dengue')" class="flex-1 py-3 px-4 rounded-xl text-sm font-bold transition-all flex items-center justify-center text-slate-600 hover:text-slate-900">
-                <i class="fas fa-mosquito mr-2"></i> 登革熱防治
+            <button id="btnDengue" onclick="switchTab('dengue')" role="tab" aria-controls="sectionDengue" aria-selected="false" class="flex-1 py-3 px-4 rounded-xl text-sm font-bold transition-all flex items-center justify-center text-slate-600 hover:text-slate-900">
+                <i class="fas fa-mosquito mr-2" aria-hidden="true"></i> 登革熱防治
             </button>
         </div>
 
         <!-- ==================== 麻疹專區 (Measles Section) ==================== -->
-        <div id="sectionMeasles" class="space-y-6">
+        <div id="sectionMeasles" class="space-y-6" role="tabpanel" aria-labelledby="btnMeasles">
             <div class="bg-blue-600 rounded-3xl p-6 text-white shadow-xl relative overflow-hidden">
                 <div class="relative z-10">
                     <div class="flex items-center space-x-2 mb-2">
@@ -79,26 +79,26 @@
                         具高度傳染力，病原可經由空氣傳播。診間防護重點在於「分流」與「環境靜置」。
                     </p>
                 </div>
-                <i class="fas fa-mask absolute -bottom-4 -right-4 text-9xl text-white/10"></i>
+                <i class="fas fa-mask absolute -bottom-4 -right-4 text-9xl text-white/10" aria-hidden="true"></i>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- 判定 -->
                 <div class="bg-white p-5 rounded-2xl border border-blue-100 shadow-sm">
                     <h3 class="font-bold text-blue-700 flex items-center mb-3">
-                        <i class="fas fa-search mr-2"></i> 臨床特徵
+                        <i class="fas fa-search mr-2" aria-hidden="true"></i> 臨床特徵
                     </h3>
                     <ul class="text-sm space-y-2 text-slate-600">
-                        <li class="flex items-start"><i class="fas fa-check text-blue-500 mt-1 mr-2 text-xs"></i> 發燒 (Fever)</li>
-                        <li class="flex items-start"><i class="fas fa-check text-blue-500 mt-1 mr-2 text-xs"></i> 3C 症狀：咳嗽、鼻炎、結膜炎</li>
-                        <li class="flex items-start"><i class="fas fa-check text-blue-500 mt-1 mr-2 text-xs"></i> 柯氏斑點 (Koplik spots)</li>
-                        <li class="flex items-start"><i class="fas fa-check text-blue-500 mt-1 mr-2 text-xs"></i> 紅疹 (由耳後/臉擴散至全身)</li>
+                        <li class="flex items-start"><i class="fas fa-check text-blue-500 mt-1 mr-2 text-xs" aria-hidden="true"></i> 發燒 (Fever)</li>
+                        <li class="flex items-start"><i class="fas fa-check text-blue-500 mt-1 mr-2 text-xs" aria-hidden="true"></i> 3C 症狀：咳嗽、鼻炎、結膜炎</li>
+                        <li class="flex items-start"><i class="fas fa-check text-blue-500 mt-1 mr-2 text-xs" aria-hidden="true"></i> 柯氏斑點 (Koplik spots)</li>
+                        <li class="flex items-start"><i class="fas fa-check text-blue-500 mt-1 mr-2 text-xs" aria-hidden="true"></i> 紅疹 (由耳後/臉擴散至全身)</li>
                     </ul>
                 </div>
                 <!-- 防護 -->
                 <div class="bg-white p-5 rounded-2xl border border-amber-100 shadow-sm">
                     <h3 class="font-bold text-amber-700 flex items-center mb-3">
-                        <i class="fas fa-shield-alt mr-2"></i> 環境管制
+                        <i class="fas fa-shield-alt mr-2" aria-hidden="true"></i> 環境管制
                     </h3>
                     <div class="bg-amber-50 p-3 rounded-xl border border-amber-200">
                         <p class="text-xs font-bold text-amber-800 mb-1">診間處置規範：</p>
@@ -110,7 +110,7 @@
                 <!-- 採檢 -->
                 <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm">
                     <h3 class="font-bold text-slate-700 flex items-center mb-3">
-                        <i class="fas fa-vial mr-2"></i> 送驗項目
+                        <i class="fas fa-vial mr-2" aria-hidden="true"></i> 送驗項目
                     </h3>
                     <div class="space-y-2 text-xs text-slate-500">
                         <div class="flex justify-between border-b pb-1"><span>咽喉擦拭液</span><span class="font-bold">病毒核酸</span></div>
@@ -122,7 +122,7 @@
         </div>
 
         <!-- ==================== 登革熱專區 (Dengue Section) ==================== -->
-        <div id="sectionDengue" class="content-hidden space-y-6">
+        <div id="sectionDengue" class="content-hidden space-y-6" role="tabpanel" aria-labelledby="btnDengue" aria-hidden="true">
             <div class="bg-emerald-700 rounded-3xl p-6 text-white shadow-xl relative overflow-hidden">
                 <div class="relative z-10">
                     <div class="flex items-center space-x-2 mb-2">
@@ -134,7 +134,7 @@
                         關鍵在於發病 7 日內的早期診斷。診所端應善用 NS1 快篩，並落實病媒蚊隔離（防蚊液/掛蚊帳）。
                     </p>
                 </div>
-                <i class="fas fa-spray-can absolute -bottom-4 -right-4 text-9xl text-white/10"></i>
+                <i class="fas fa-spray-can absolute -bottom-4 -right-4 text-9xl text-white/10" aria-hidden="true"></i>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -142,7 +142,7 @@
                 <div class="bg-white rounded-2xl border border-emerald-100 shadow-sm overflow-hidden">
                     <div class="bg-emerald-50 px-5 py-3 border-b border-emerald-100 flex justify-between items-center">
                         <h3 class="font-bold text-emerald-800 text-sm">NS1 公費快篩適用條件</h3>
-                        <i class="fas fa-check-double text-emerald-500"></i>
+                        <i class="fas fa-check-double text-emerald-500" aria-hidden="true"></i>
                     </div>
                     <div class="p-5">
                         <ul class="text-sm space-y-4">
@@ -165,7 +165,7 @@
                 <!-- 檢體處理 -->
                 <div class="bg-slate-900 text-white rounded-2xl p-6 shadow-sm">
                     <h3 class="font-bold flex items-center mb-4">
-                        <i class="fas fa-truck-loading text-emerald-400 mr-2"></i> 採檢與物流送驗
+                        <i class="fas fa-truck-loading text-emerald-400 mr-2" aria-hidden="true"></i> 採檢與物流送驗
                     </h3>
                     <div class="space-y-4">
                         <div class="bg-white/10 p-4 rounded-xl border border-white/10">
@@ -175,11 +175,11 @@
                         </div>
                         <div class="text-xs space-y-2">
                             <div class="flex items-center">
-                                <i class="fab fa-line text-green-400 mr-2 text-base"></i>
+                                <i class="fab fa-line text-green-400 mr-2 text-base" aria-hidden="true"></i>
                                 <span>已入 Line 群組者：直接於群組通知物流。</span>
                             </div>
                             <div class="flex items-center">
-                                <i class="fas fa-phone-alt text-blue-400 mr-2"></i>
+                                <i class="fas fa-phone-alt text-blue-400 mr-2" aria-hidden="true"></i>
                                 <span>未入群組：洽大同區健康服務中心協助。</span>
                             </div>
                         </div>
@@ -192,7 +192,7 @@
         <section class="mt-8 bg-white rounded-2xl border-2 border-slate-900 shadow-xl overflow-hidden">
             <div class="bg-slate-900 text-white px-6 py-3 flex justify-between items-center">
                 <h2 class="font-bold text-sm flex items-center tracking-wider">
-                    <i class="fas fa-bullhorn mr-2 text-yellow-400"></i> 通報核心聯繫資訊
+                    <i class="fas fa-bullhorn mr-2 text-yellow-400" aria-hidden="true"></i> 通報核心聯繫資訊
                 </h2>
                 <span class="text-[10px] bg-red-600 px-2 py-0.5 rounded animate-pulse">24小時時效</span>
             </div>
@@ -201,7 +201,7 @@
                     <p class="text-[10px] text-slate-400 font-bold uppercase mb-2">Step 1: 優先線上通報</p>
                     <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
                         <p class="text-sm font-bold text-blue-700 flex items-center">
-                            <i class="fas fa-network-wired mr-2"></i> 健保網域 (VPN) 免帳號通報
+                            <i class="fas fa-network-wired mr-2" aria-hidden="true"></i> 健保網域 (VPN) 免帳號通報
                         </p>
                         <p class="text-[10px] text-slate-500 mt-1 leading-relaxed">
                             請登入 VPN 系統後，選擇「法定傳染病通報」入口。
@@ -243,17 +243,25 @@
                 btnMeasles.classList.remove('text-slate-600');
                 btnDengue.classList.remove('tab-active');
                 btnDengue.classList.add('text-slate-600');
-                
+
+                btnMeasles.setAttribute('aria-selected', 'true');
+                btnDengue.setAttribute('aria-selected', 'false');
                 secMeasles.classList.remove('content-hidden');
                 secDengue.classList.add('content-hidden');
+                secDengue.setAttribute('aria-hidden', 'true');
+                secMeasles.removeAttribute('aria-hidden');
             } else {
                 btnDengue.classList.add('tab-active');
                 btnDengue.classList.remove('text-slate-600');
                 btnMeasles.classList.remove('tab-active');
                 btnMeasles.classList.add('text-slate-600');
-                
+
+                btnDengue.setAttribute('aria-selected', 'true');
+                btnMeasles.setAttribute('aria-selected', 'false');
                 secDengue.classList.remove('content-hidden');
                 secMeasles.classList.add('content-hidden');
+                secMeasles.setAttribute('aria-hidden', 'true');
+                secDengue.removeAttribute('aria-hidden');
             }
         }
     </script>
