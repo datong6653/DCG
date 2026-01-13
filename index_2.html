@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>傳染病防治實務指引 - 大同區健康服務中心</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
+        
+        :root {
+            --primary-blue: #1e40af;
+            --primary-emerald: #065f46;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f8fafc;
+            scroll-behavior: smooth;
+        }
+
+        .tab-active {
+            background-color: white;
+            color: var(--primary-blue);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .content-hidden { display: none; }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .pulse-btn::after {
+            content: "";
+            position: absolute;
+            width: 100%; height: 100%;
+            top: 0; left: 0;
+            background: inherit;
+            border-radius: inherit;
+            animation: pulse-ring 2s infinite;
+            z-index: -1;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(1.3); opacity: 0; }
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            .content-hidden { display: block !important; }
+            body { background-color: white; }
+            .print-break { page-break-before: always; }
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased">
+
+    <!-- Header -->
+    <header class="bg-white/80 border-b border-slate-200 sticky top-0 z-50 glass-effect">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-blue-600 p-2.5 rounded-xl shadow-lg">
+                    <i class="fas fa-shield-virus text-white text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-black text-xl text-slate-900 leading-tight">醫護傳染病防治手冊</h1>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-[10px] text-white bg-slate-800 px-1.5 py-0.5 rounded font-bold uppercase">Datong Health</span>
+                        <span class="text-[10px] text-slate-400 font-bold uppercase tracking-tighter">Ver 2026.01.13_V4 (詳盡版)</span>
+                    </div>
+                </div>
+            </div>
+            <button onclick="window.print()" class="no-print bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-xl text-xs font-bold transition-all">
+                <i class="fas fa-print mr-2"></i> 列印全手冊
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-8">
+        
+        <!-- Search -->
+        <div class="no-print mb-8">
+            <div class="relative max-w-xl mx-auto">
+                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                <input type="text" id="guideSearch" placeholder="搜尋症狀、通報網址或醫護規範..." 
+                    class="w-full pl-12 pr-4 py-4 bg-white border border-slate-200 rounded-2xl shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all">
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <nav class="no-print flex p-1.5 bg-slate-200/50 rounded-2xl mb-10 max-w-md mx-auto" role="tablist">
+            <button id="btnMeasles" onclick="switchTab('measles')" class="flex-1 py-3 px-4 rounded-xl text-sm font-bold transition-all flex items-center justify-center tab-active">
+                <i class="fas fa-head-side-mask mr-2"></i> 麻疹防治
+            </button>
+            <button id="btnDengue" onclick="switchTab('dengue')" class="flex-1 py-3 px-4 rounded-xl text-sm font-bold transition-all flex items-center justify-center text-slate-500 hover:text-slate-900">
+                <i class="fas fa-mosquito mr-2"></i> 登革熱
+            </button>
+        </nav>
+
+        <!-- ==================== 麻疹專區 (Measles) ==================== -->
+        <div id="sectionMeasles" class="space-y-6">
+            <div class="bg-gradient-to-br from-blue-700 to-indigo-800 rounded-[2rem] p-8 text-white shadow-2xl relative overflow-hidden">
+                <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-400/30 backdrop-blur-md text-[11px] font-bold px-3 py-1 rounded-full border border-blue-400/50">空氣傳播</span>
+                            <span class="bg-red-500 text-[11px] font-bold px-3 py-1 rounded-full shadow-lg">24h 內通報</span>
+                        </div>
+                        <h2 class="text-3xl font-black mb-2">麻疹 (Measles) 防治細則</h2>
+                        <p class="text-blue-100 text-sm max-w-2xl opacity-90">
+                            具極高傳染力。診治應落實 TOCC 詢問，並確保醫護人員具備免疫力。個案離開後需靜置診間 2 小時。
+                        </p>
+                    </div>
+                    <div class="mt-4 md:mt-0 flex gap-2 no-print">
+                        <a href="https://www.cdc.gov.tw/Category/MPage/g2B1VbUeuu_gEgdYmNiiKw" target="_blank" class="bg-white/20 hover:bg-white/30 px-4 py-2 rounded-xl text-xs font-bold transition-all border border-white/20">
+                            <i class="fas fa-external-link-alt mr-1"></i> CDC 通報入口
+                        </a>
+                    </div>
+                </div>
+                <i class="fas fa-virus-covid absolute -bottom-10 -right-10 text-[12rem] text-white/10 rotate-12"></i>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- 臨床特徵 -->
+                <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm card-hover">
+                    <h3 class="font-bold text-blue-700 mb-3 text-sm flex items-center"><i class="fas fa-stethoscope mr-2"></i>臨床特徵</h3>
+                    <ul class="text-[13px] space-y-2 text-slate-600">
+                        <li>‧ 發燒 (≥ 38°C)</li>
+                        <li>‧ 3C：咳嗽、鼻炎、結膜炎</li>
+                        <li class="text-red-600 font-bold">‧ 柯氏斑點 (Koplik spots)</li>
+                        <li>‧ 紅疹：耳後向全身擴散</li>
+                    </ul>
+                </div>
+                <!-- 感染管制 -->
+                <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm card-hover">
+                    <h3 class="font-bold text-amber-700 mb-3 text-sm flex items-center"><i class="fas fa-shield-halved mr-2"></i>感染管制</h3>
+                    <ul class="text-[13px] space-y-2 text-slate-600">
+                        <li>‧ 詢問 <strong>TOCC</strong> 與疫苗史</li>
+                        <li>‧ 個案配戴口罩、獨立診間</li>
+                        <li>‧ 診間<strong>關閉靜置 2 小時</strong></li>
+                        <li>‧ 落實呼吸道衛生禮節</li>
+                    </ul>
+                </div>
+                <!-- 醫護保護 -->
+                <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm card-hover">
+                    <h3 class="font-bold text-purple-700 mb-3 text-sm flex items-center"><i class="fas fa-user-md mr-2"></i>醫護自我保護</h3>
+                    <div class="text-[12px] text-slate-600 leading-relaxed">
+                        1981年後出生且距前次 MMR 已逾 15 年者，建議<strong>自費補打 1 劑</strong>。建議先行檢測抗體，具抗體者免補種。
+                    </div>
+                </div>
+                <!-- 衛教重點 -->
+                <div class="bg-slate-900 p-5 rounded-3xl text-white shadow-lg">
+                    <h3 class="font-bold text-blue-400 mb-3 text-sm flex items-center"><i class="fas fa-bullhorn mr-2"></i>重點衛教</h3>
+                    <ul class="text-[12px] space-y-1.5 opacity-90">
+                        <li>‧ 接觸者<strong>自主管理 18 天</strong></li>
+                        <li>‧ 違規最高可處 <strong>30 萬罰鍰</strong></li>
+                        <li>‧ 計畫出國者提早 2-4 週補種</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 通報路徑詳細區域 -->
+            <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="bg-slate-50 px-6 py-3 border-b border-slate-200">
+                    <h3 class="font-bold text-sm text-slate-800 uppercase tracking-widest">麻疹通報路徑指引</h3>
+                </div>
+                <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <h4 class="font-bold text-blue-700 text-sm flex items-center"><i class="fas fa-globe mr-2"></i> 線上通報 (優先使用)</h4>
+                        <div class="space-y-3">
+                            <div class="p-4 bg-blue-50 rounded-2xl border border-blue-100">
+                                <p class="text-xs font-bold text-blue-900 mb-2">已有 NIDRS 帳號者</p>
+                                <a href="https://nidrs.cdc.gov.tw" target="_blank" class="text-[11px] text-blue-600 underline break-all">登入傳染病通報系統 (NIDRS)</a>
+                            </div>
+                            <div class="p-4 bg-indigo-50 rounded-2xl border border-indigo-100">
+                                <p class="text-xs font-bold text-indigo-900 mb-2">無帳號之診所 (健保 VPN)</p>
+                                <p class="text-[11px] text-slate-600">請登入<strong>健保 VPN</strong> 後，進入「傳染病通報系統」免帳號入口。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <h4 class="font-bold text-slate-700 text-sm flex items-center"><i class="fas fa-file-contract mr-2"></i> 紙本通報流程</h4>
+                        <div class="space-y-3 text-[12px] text-slate-600 leading-relaxed">
+                            <p>1. 下載並填妥<strong>「法定及新興傳染病報告單」</strong></p>
+                            <p>2. 傳真至臺北市衛生局：<span class="font-bold text-slate-900">02-23611487</span></p>
+                            <div class="bg-red-50 p-3 rounded-xl border border-red-100">
+                                <p class="text-red-700 font-bold mb-1"><i class="fas fa-phone-alt mr-1"></i> 傳真後務必致電確認</p>
+                                <p class="text-red-600 text-lg font-mono font-black">02-23753782</p>
+                                <p class="text-[10px] opacity-70">(台北市衛生局防疫專線)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== 登革熱專區 (Dengue) ==================== -->
+        <div id="sectionDengue" class="content-hidden space-y-6">
+            <div class="bg-gradient-to-br from-emerald-800 to-teal-900 rounded-[2rem] p-8 text-white shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-emerald-400/30 backdrop-blur-md text-[11px] font-bold px-3 py-1 rounded-full border border-emerald-400/50">病媒傳播</span>
+                        <span class="bg-yellow-400 text-emerald-950 text-[11px] font-bold px-3 py-1 rounded-full">NS1 快篩</span>
+                    </div>
+                    <h2 class="text-3xl font-black mb-3">登革熱 (Dengue) 防治核心</h2>
+                    <p class="text-emerald-100 text-sm leading-relaxed max-w-2xl opacity-90">
+                        關鍵在於發病 7 日內的早期診斷。診所端應善用公費 NS1 快篩，並落實病媒蚊隔離（防蚊液/掛蚊帳）。
+                    </p>
+                </div>
+                <i class="fas fa-mosquito absolute -bottom-10 -right-10 text-[12rem] text-white/10 rotate-12"></i>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- NS1 流程 -->
+                <div class="bg-white rounded-[2.5rem] border border-emerald-100 shadow-sm p-8 card-hover transition-all">
+                    <h3 class="font-bold text-emerald-900 mb-6 flex items-center text-lg"><i class="fas fa-vial mr-3 text-emerald-500"></i>公費 NS1 快篩適用條件</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <span class="bg-emerald-100 text-emerald-700 w-6 h-6 rounded-full flex items-center justify-center text-xs font-black mr-3 mt-0.5">1</span>
+                            <p class="text-sm text-slate-700"><strong>症狀：</strong>發燒且伴隨眼窩痛、肌肉關節痛或出疹。</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="bg-emerald-100 text-emerald-700 w-6 h-6 rounded-full flex items-center justify-center text-xs font-black mr-3 mt-0.5">2</span>
+                            <p class="text-sm text-slate-700"><strong>旅遊史：</strong>14天內曾有流行地區旅遊史。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 採檢物流 -->
+                <div class="bg-emerald-900 text-white rounded-[2.5rem] p-8 shadow-2xl">
+                    <h3 class="text-xl font-bold mb-6 flex items-center"><i class="fas fa-truck-fast mr-3 text-emerald-400"></i>採檢與送驗</h3>
+                    <div class="space-y-4">
+                        <div class="p-5 bg-white/5 rounded-2xl border border-white/10">
+                            <p class="text-[10px] text-emerald-300 font-bold uppercase mb-2">檢體規範</p>
+                            <p class="text-lg font-bold">血清 3-5 mL (黃/紅頭管)</p>
+                            <p class="text-xs text-slate-300 italic">採檢後請務必 4°C 冷藏保存。</p>
+                        </div>
+                        <div class="flex gap-4 mt-4">
+                            <div class="flex-1 p-3 bg-emerald-800 rounded-xl text-center text-[11px]">
+                                <i class="fab fa-line mb-1 text-lg"></i><br>防疫群組通報
+                            </div>
+                            <div class="flex-1 p-3 bg-emerald-800 rounded-xl text-center text-[11px]">
+                                <i class="fas fa-phone mb-1 text-lg"></i><br>電話取件預約
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-16 pb-12 text-center">
+            <p class="text-[11px] text-slate-400 font-bold uppercase tracking-widest">大同區健康服務中心 ‧ 傳染病防治小組 製作</p>
+            <p class="text-[10px] text-slate-300 mt-2">依據 115 年 1 月最新標準修訂</p>
+        </footer>
+    </main>
+
+    <!-- Floating Action for Mobile -->
+    <a href="tel:0223753782" class="no-print md:hidden fixed bottom-6 right-6 bg-red-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center z-[100] pulse-btn">
+        <i class="fas fa-phone"></i>
+    </a>
+
+    <script>
+        function switchTab(type) {
+            const btnMeasles = document.getElementById('btnMeasles');
+            const btnDengue = document.getElementById('btnDengue');
+            const secMeasles = document.getElementById('sectionMeasles');
+            const secDengue = document.getElementById('sectionDengue');
+
+            if (type === 'measles') {
+                btnMeasles.classList.add('tab-active');
+                btnMeasles.classList.remove('text-slate-500');
+                btnDengue.classList.remove('tab-active');
+                btnDengue.classList.add('text-slate-500');
+                secMeasles.classList.remove('content-hidden');
+                secDengue.classList.add('content-hidden');
+            } else {
+                btnDengue.classList.add('tab-active');
+                btnDengue.classList.remove('text-slate-500');
+                btnMeasles.classList.remove('tab-active');
+                btnMeasles.classList.add('text-slate-500');
+                secDengue.classList.remove('content-hidden');
+                secMeasles.classList.add('content-hidden');
+            }
+        }
+
+        const searchInput = document.getElementById('guideSearch');
+        searchInput.addEventListener('input', function(e) {
+            const term = e.target.value.toLowerCase();
+            const elements = document.querySelectorAll('.card-hover, li, p, .bg-white, .bg-slate-900');
+            
+            if (term.length < 2) {
+                elements.forEach(el => el.style.opacity = '1');
+                return;
+            }
+
+            elements.forEach(el => {
+                const text = el.textContent.toLowerCase();
+                el.style.opacity = text.includes(term) ? '1' : '0.3';
+            });
+        });
+    </script>
+</body>
+</html>
