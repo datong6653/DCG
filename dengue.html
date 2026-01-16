@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>醫護傳染病防治手冊 - 登革熱</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #e63946; /* 登革熱主題紅 */
+            --secondary-bg: #f8f9fa;
+            --dark-bg: #1a202c;
+            --text-main: #2d3748;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: var(--text-main);
+            margin: 0;
+            padding: 15px;
+            line-height: 1.6;
+        }
+
+        /* 頂部標題 */
+        .header-section {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border-left: 8px solid var(--primary-color);
+        }
+
+        .header-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+        }
+
+        .header-text h1 {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+
+        .version-tag {
+            font-size: 0.75rem;
+            color: #718096;
+            background: #edf2f7;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* 卡片設計 */
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .dark-card {
+            background: var(--dark-bg);
+            color: white;
+        }
+
+        h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+            color: inherit;
+        }
+
+        h3 i { margin-right: 10px; }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+
+        li { margin-bottom: 8px; }
+
+        .important { color: #feb2b2; font-weight: bold; }
+
+        /* 按鈕樣式 */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            color: #3182ce;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .footer-nav {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .back-btn {
+            background: #4a5568;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-section">
+        <div class="header-icon"><i class="fas fa-shield-virus"></i></div>
+        <div class="header-text">
+            <h1>醫護傳診病防治手冊</h1>
+            <div>
+                <span style="font-weight: bold;">登革熱專版</span> 
+                <span class="version-tag">VER 2026.01.16_D1</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3 style="color: #805ad5;"><i class="fas fa-user-shield"></i> 醫護自我保護</h3>
+        <ul>
+            <li>落實標準防護措施，若有噴藥作業應佩戴口罩。</li>
+            <li>院內環境巡檢，確保<strong>無積水容器</strong>。</li>
+            <li>若於流行區工作，應穿著長袖衣褲並使用防蚊液。</li>
+        </ul>
+    </div>
+
+    <div class="card dark-card">
+        <h3><i class="fas fa-bullhorn"></i> 重點衛教</h3>
+        <ul>
+            <li>接觸者自主管理 <strong>14 天</strong>。</li>
+            <li>清除孳生源：<strong>巡、倒、清、刷</strong>。</li>
+            <li>出現「警示徵象」(如腹痛、嘔吐) 需立即就醫。</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3 style="color: #2b6cb0;"><i class="fas fa-notes-medical"></i> 通報與採檢指引</h3>
+        <p><strong>通報時限：</strong> 24 小時內完成通報。</p>
+        <hr style="border: 0; border-top: 1px solid #edf2f7;">
+        <p><strong>採檢項目：</strong></p>
+        <ul>
+            <li>發病 7 天內：NS1 快篩 (優先) + PCR。</li>
+            <li>發病後：IgM / IgG 抗體檢測。</li>
+            <li>採檢容器：3-5 c.c. 血清管 (黃頭管)。</li>
+        </ul>
+        <a href="https://nidrs.cdc.gov.tw/" class="btn">登入傳染病通報系統 (NIDRS)</a>
+    </div>
+
+    <div class="footer-nav">
+        <a href="index_2.html" class="back-btn">
+            <i class="fas fa-chevron-left"></i> 返回 麻疹防治手冊
+        </a>
+    </div>
+
+</body>
+</html>
